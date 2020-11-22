@@ -59,7 +59,7 @@ static IDirectFBEventBuffer *key_events;
 static int screen_width, screen_height;
 
 
-static void shutdown()
+static void dfb_shutdown(void)
 {
      /* release our interfaces to shutdown DirectFB */
      primary->Release( primary );
@@ -161,7 +161,7 @@ int main( int argc, char *argv[] )
      surfacemanager_test();
 //     surfacemanager_test();
 
-     shutdown();
+     dfb_shutdown();
 
      return 0;
 }

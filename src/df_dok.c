@@ -44,6 +44,9 @@
 
 #include "pngtest3.h"
 
+/* Function declarations */
+static void dfb_shutdown(void);
+
 /* the super interface */
 static IDirectFB *dfb;
 
@@ -380,7 +383,7 @@ static void print_usage()
      printf ("\n");
 }
 
-static void shutdown()
+static void dfb_shutdown(void)
 {
      /* release our interfaces to shutdown DirectFB */
      bench_font->Release( bench_font );
@@ -415,7 +418,7 @@ static void showMessage( const char *msg )
                     case DIKS_CAPITAL_Q:
                     case DIKS_BACK:
                     case DIKS_STOP:
-                         shutdown();
+                         dfb_shutdown();
                          exit( 42 );
                          break;
                     default:
@@ -1813,7 +1816,7 @@ int main( int argc, char *argv[] )
 
      printf( "\n" );
 
-     shutdown();
+     dfb_shutdown();
 
      return EXIT_SUCCESS;
 }
